@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Simple SPA</title>
+
+    <!-- Favicon -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAOjv4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEBEAAAAAEBAAABAQAAAQEREREBAAABEREREREAAAARAREBEAAAAAEREREAAAAAABAAEAAAAAAAEAAQAAAAAAEAAAEAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AAD//wAA//8AAPyfAADr6wAA6AsAAOADAADyJwAA+A8AAP3fAAD93wAA++8AAP//AAD//wAA"
+          rel="icon" type="image/x-icon" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+<!-- Navigation -->
+<nav>
+    <a id="dictionary" href="#/dictionary">Dictionary</a>
+    <a id="thesaurus" href="#/thesaurus">Thesaurus</a>
+    <a id="synonyms" href="#/synonyms">Synonyms</a>
+    <a id="antonyms" href="#/antonyms">Antonyms</a>
+</nav>
+
+<br />
+
+<!-- Main Content -->
+<div id="app">Click on a menu item.</div>
+
+<!-- Dictionary Template -->
+<script id="dictionary-template" type="text/handlebars-template">
+    <h1>Dictionary</h1>
+    <br />
+    <form id="lookup-form">
+        <input id="lookup" name="word" type="text" required />
+        <input name="submit" type="submit" value="Lookup" />
+    </form>
+    <br />
+    <div id="results"></div>
+</script>
+
+<!-- Thesaurus Template -->
+<script id="thesaurus-template" type="text/handlebars-template">
+    <h1>Thesaurus</h1>
+    <p>Coming soon!</p>
+    <br />
+</script>
+
+<!-- Synonyms Template -->
+<script id="synonyms-template" type="text/handlebars-template">
+    <h1>Synonyms</h1>
+    <br />
+    <form id="search-form">
+        <input name="word" type="text" required id="lookup" />
+        <input name="submit" type="submit" value="Lookup" />
+    </form>
+    <br />
+    <div id="synonymsList-results"></div>
+</script>
+
+<!-- Antonyms Template -->
+<script id="antonyms-template" type="text/handlebars-template">
+    <h1>Antonyms</h1>
+    <br />
+    <form id="check-form">
+        <input name="word" type="text" required id="lookup" />
+        <input name="submit" type="submit" value="Lookup" />
+    </form>
+    <br />
+    <div id="antonymsList-results"></div>
+</script>
+
+<!-- Dictionary Results Template -->
+<script id="results-template" type="text/handlebars-template">
+    <h2>
+        <span id="word">{{word}}</span> &nbsp;<span id="phonetic">{{phonetic}}</span>
+    </h2>
+    {{#if audioUrl}}
+    <audio controls>
+        <source src="{{audio}}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    {{/if}}
+    <h3>Meanings</h3>
+    {{#each meanings}}
+    <h4 class="part-of-speech">{{partOfSpeech}}</h4>
+    <ol>
+        {{#each definitions}}
+        <li class="definition">{{this.definition}}</li>
+        {{#if this.example}}
+        <em class="example">Example: {{this.example}}</em>
+        {{/if}}
+        {{/each}}
+    </ol>
+    {{/each}}
+</script>
+
+<!-- Synonyms Results Template -->
+<script id="syno-results-template" type="text/handlebars-template">
+    <h2>
+        <span id="word">{{word}}</span> &nbsp;<span id="phonetic">{{phonetic}}</span>
+    </h2>
+    <h3>Synonyms</h3>
+    <ol>
+        {{#each synonyms}}
+        <li class="related-word">{{this}}</li>
+        {{/each}}
+    </ol>
+</script>
+
+<!-- Antonyms Results Template -->
+<script id="anto-results-template" type="text/handlebars-template">
+    <h2>
+        <span id="word">{{word}}</span> &nbsp;<span id="phonetic">{{phonetic}}</span>
+    </h2>
+    <h3>Antonyms</h3>
+    <ol>
+        {{#each antonyms}}
+        <li class="related-word">{{this}}</li>
+        {{/each}}
+    </ol>
+</script>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-router@1.2.8/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+
+</html>

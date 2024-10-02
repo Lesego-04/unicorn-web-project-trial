@@ -1,0 +1,121 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation bar styles */
+nav {
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+nav a:hover {
+    color: #ffdd57;
+}
+
+/* Main content */
+#app {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styling */
+form {
+    margin-bottom: 20px;
+}
+
+form input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+form input[type="submit"] {
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Heading styles */
+h1, h2, h3, h4 {
+    margin-top: 0;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+    color: #555;
+}
+
+h3 {
+    font-size: 18px;
+    color: #777;
+}
+
+h4 {
+    font-size: 16px;
+    color: #888;
+}
+
+/* List styling */
+ol {
+    margin-left: 20px;
+}
+
+ol li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Styling for related words */
+.related-word {
+    color: #0073e6;
+    font-weight: bold;
+}
+
+.related-word:hover {
+    text-decoration: underline;
+}
+
+/* Audio player styling */
+audio {
+    margin-top: 10px;
+}
+
+/* Result block */
+#results, #synonymsList-results, #antonymsList-results {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
